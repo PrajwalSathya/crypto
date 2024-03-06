@@ -48,18 +48,17 @@ const CryptoDetails = () => {
 
   return ReactDOM.createPortal(
     <div
-      className="fixed top-0 w-full h-full bg-gray-200 bg-opacity-30 first-letter:
-    backdrop-blur-sm flex items-center justify-center font-nunito
+      className="fixed z-20 top-0 w-full h-full bg-gray-200 bg-opacity-30 backdrop-blur-sm  flex items-center justify-center font-nunito
     "
       onClick={close}
     >
       <div
-        className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
+        className="xl:w-[65%] lg:w-[75%] md:w-[90%] sm:w-[75%] w-[90%] lg:h-[75%] md:h-[70%] h-[90vh]  scrollbar-thin md:overflow-hidden  bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         onClick={(e) => e.stopPropagation()}
       >
         {data ? (
-          <div className="flex items-center justify-between h-full w-full p-4">
-            <div className="flex flex-col w-[45%] h-full pr-2 ">
+          <div className="flex md:flex-row flex-col items-center justify-between lg:h-full h-auto w-full p-4 relative">
+            <div className="flex flex-col  md:w-[45%] w-full h-full pr-2">
               <div className="flex w-full items-center">
                 <img
                   className="w-[3rem] h-[3rem] mx-1.5"
@@ -77,8 +76,8 @@ const CryptoDetails = () => {
                 </span>
               </div>
 
-              <div className="flex w-full mt-6">
-                <div className="flex flex-col w-full">
+              <div className="flex w-full  mt-6">
+                <div className="w-full flex flex-col">
                   <div className="flex justify-between">
                     <span className="text-sm capitalize text-gray-100">
                       Price
@@ -128,7 +127,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex  sm:flex-row flex-col  w-full  mt-4 justify-between">
                 <div className="flex flex-col">
                   <span className="text-sm capitalize text-gray-100">
                     Market Cap
@@ -141,7 +140,7 @@ const CryptoDetails = () => {
                     }).format(data.market_data.market_cap[currency])}
                   </h2>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col sm:mt-0 mt-1">
                   <span className="text-sm capitalize text-gray-100">
                     fully diluted valuation
                   </span>
@@ -232,7 +231,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
 
-              <div className="flex w-full mt-4 justify-between">
+              <div className="flex w-full  mt-4 justify-between sm:flex-row flex-col">
                 <div className="flex flex-col">
                   <a
                     target={"_blank"}
@@ -324,7 +323,7 @@ const CryptoDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-[55%] h-full pl-3 ">
+            <div className="flex flex-col md:w-[55%] w-full h-[60vh] md:pl-4 pl-0 md:mt-0 mt-2">
               <Chart id={data.id} />
 
               <div className="flex flex-col mt-4">
@@ -351,7 +350,7 @@ const CryptoDetails = () => {
               </div>
             </div>
 
-            <div className="absolute bottom-8 right-8 flex items-center">
+            <div className="absolute md:bottom-8 bottom-4 right-4 flex items-center md:flex-row flex-col sm:right-8">
               {data.links.repos_url.github[0] && (
                 <a
                   className="text-lg px-1"

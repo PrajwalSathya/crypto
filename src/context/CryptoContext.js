@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useLayoutEffect, useState } from "react";
 
-// create context object
+//  context object
 export const CryptoContext = createContext({});
 
-// create the provider component
+// provider component
 export const CryptoProvider = ({ children }) => {
   const [cryptoData, setCryptoData] = useState();
   const [searchData, setSearchData] = useState();
@@ -19,12 +19,9 @@ export const CryptoProvider = ({ children }) => {
   const [perPage, setPerPage] = useState(10);
 
 
-  // This is how you can do error handling by creating one state to store the error,
-  // This is only for example purpose and not covered in the video
-  // create one state for the error
+
   const [error, setError] = useState({ data: "", coinData: "", search: "" });
-// there can be 3 errors that we can catch from all three functions, also send the error state 
-// through value prop
+
 
   const getCryptoData = async () => {
     //here we will set an empty string for the data error
@@ -52,7 +49,7 @@ export const CryptoProvider = ({ children }) => {
           return res.json();
         }
         let errorResponse = await res.json();
-        // here we might get the error so it is best to handle it and throw the error
+        
         // console.log(errorResponse);
         setError({ ...error, data: errorResponse.error });
         throw new Error(errorResponse.error);
@@ -99,6 +96,8 @@ export const CryptoProvider = ({ children }) => {
   const resetFunction = () => {
     setPage(1);
     setCoinSearch("");
+    setCurrency("USD");
+    setSortBy("market_cap_desc")
   };
 
   useLayoutEffect(() => {

@@ -11,11 +11,11 @@ const Home = () => {
     <CryptoProvider>
       <TrendingProvider>
         <StorageProvider>
-          <main
+        <main
             className="w-full h-full flex flex-col first-letter:
-    content-center items-center relative text-white font-nunito
-    "
+              content-center items-center relative text-white font-nunito"
           >
+
             <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
             <Logo />
             <Navigation />

@@ -65,10 +65,10 @@ const TableComponent = () => {
             >
               <tr>
                 <th className="py-1">asset</th>
-                <th className="py-1">name</th>
+                <th className="py-1 sm:table-cell hidden">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
+                <th className="py-1 md:table-cell hidden">total volume</th>
+                <th className="py-1 sm:table-cell hidden">market cap change</th>
                 <th className="py-1 lg:table-cell hidden">1H</th>
                 <th className="py-1 lg:table-cell hidden">24H</th>
                 <th className="py-1 lg:table-cell hidden">7D</th>
@@ -79,8 +79,7 @@ const TableComponent = () => {
                 return (
                   <tr
                     key={data.id}
-                    className="text-center text-base border-b border-gray-100 
-            hover:bg-gray-200 last:border-b-0
+                    className="text-center text-base border-b border-gray-100  hover:bg-gray-200 last:border-b-0
             "
                   >
                     <td className="py-4 flex items-center uppercase">
@@ -96,20 +95,32 @@ const TableComponent = () => {
                         </Link>
                       </span>
                     </td>
-                    <td className="py-4">
+                    <td className="py-4 cursor-pointer sm:table-cell hidden">
                       <Link to={`/${data.id}`} className="cursor-pointer">
                         {data.name}
                       </Link>
                     </td>
                     <td className="py-4">
+                    <Link to={`/${data.id}`} className="cursor-pointer">
                       {new Intl.NumberFormat("en-IN", {
                         style: "currency",
                         currency: currency,
                       }).format(data.current_price)}
+                      </Link>
                     </td>
-                    <td className="py-4">{data.total_volume}</td>
-                    <td className="py-4">
+                    <td className="py-4 sm:table-cell hidden">
+                      <Link to={`/${data.id}`} className="cursor-pointer">
+                      {data.total_volume}
+                      </Link>
+                    </td>
+                    <td className={
+                        data.market_cap_change_percentage_24h > 0
+                          ? "text-green py-4 md:table-cell hidden "
+                          : "text-red py-4  md:table-cell hidden"
+                      }>
+                        <Link to={`/${data.id}`} className="cursor-pointer">
                       {data.market_cap_change_percentage_24h}%
+                      </Link>
                     </td>
                     <td
                       className={
@@ -118,9 +129,12 @@ const TableComponent = () => {
                           : "text-red py-4  lg:table-cell hidden"
                       }
                     >
+                      <Link to={`/${data.id}`} className="cursor-pointer">
+                      
                       {Number(
                         data.price_change_percentage_1h_in_currency
                       ).toFixed(2)}
+                      </Link>
                     </td>
                     <td
                       className={
@@ -129,9 +143,11 @@ const TableComponent = () => {
                           : "text-red py-4  lg:table-cell hidden"
                       }
                     >
+                      <Link to={`/${data.id}`} className="cursor-pointer">
                       {Number(
                         data.price_change_percentage_24h_in_currency
                       ).toFixed(2)}
+                      </Link>
                     </td>
                     <td
                       className={
@@ -140,9 +156,11 @@ const TableComponent = () => {
                           : "text-red py-4  lg:table-cell hidden"
                       }
                     >
+                      <Link to={`/${data.id}`} className="cursor-pointer">
                       {Number(
                         data.price_change_percentage_7d_in_currency
                       ).toFixed(2)}
+                      </Link>
                     </td>
                   </tr>
                 );
@@ -164,12 +182,11 @@ const TableComponent = () => {
               : error.search
               ? error.search
               : "Something unexpected happened!"}
-              {/* Here we have use multi chain conditions using ternary operator/ this is not
-              covered in the video but for the example and some improvements */}
+             
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
+      <div className="flex md:flex-row flex-col items-center justify-between  mt-4 capitalize h-[2rem] ">
         <span>
           Data provided by{" "}
           <a

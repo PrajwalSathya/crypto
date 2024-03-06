@@ -19,7 +19,7 @@ const PerPage = () => {
   return (
     <form
       className="relative flex items-center font-nunito
-          mr-12
+          mr-6
           "
       onSubmit={handleSubmit}
     >
@@ -38,9 +38,9 @@ const PerPage = () => {
         max={250}
         ref={inputRef}
         placeholder="10"
-        className="w-16 rounded bg-gray-200 placeholder:text-gray-100
-     pl-2 required outline-0 border border-transparent 
-     focus:border-cyan leading-4
+        className="hover:appearance-none appearance-none w-8 h-6 rounded bg-gray-200 placeholder:text-gray-100 placeholder:text-sm required outline-0 
+        border border-transparent focus:border-cyan leading-4  text-center text-sm
+        
      "
       />
       <button type="submit" className="ml-1 cursor-pointer">
