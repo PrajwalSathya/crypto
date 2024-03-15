@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/crypto/static/css/main.491f4803.css",
+    "main.js": "/crypto/static/js/main.e19c435d.js",
+    "static/js/787.c187880f.chunk.js": "/crypto/static/js/787.c187880f.chunk.js",
+    "static/media/submit-icon.svg": "/crypto/static/media/submit-icon.df6311ef7bd1383b2860a218cc7d01a4.svg",
+    "static/media/pagination-arrow.svg": "/crypto/static/media/pagination-arrow.e21b39464a11475d1397ae4bb52a177f.svg",
+    "static/media/logo.svg": "/crypto/static/media/logo.ba5e309abadff23fef354ee4ab537626.svg",
+    "index.html": "/crypto/index.html",
+    "static/media/search-icon.svg": "/crypto/static/media/search-icon.523d9a8cb9ecb1aa8d160bd7e4e815a6.svg",
+    "static/media/index.cjs": "/crypto/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.491f4803.css.map": "/crypto/static/css/main.491f4803.css.map",
+    "main.e19c435d.js.map": "/crypto/static/js/main.e19c435d.js.map",
+    "787.c187880f.chunk.js.map": "/crypto/static/js/787.c187880f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.491f4803.css",
+    "static/js/main.e19c435d.js"
+  ]
+}
